@@ -2,7 +2,7 @@
 
     session_start();
     
-    require_once('db.php');
+    require_once('../db.php');
 
     $email = $_POST['email'];
     $password = md5($_POST['password']);
@@ -19,12 +19,15 @@
         $_SESSION['email'] = $row['f_name'];
         $_SESSION['user_status'] = "yes";
 
-        if ($row['u_type'] == "admin")
+        if ($row['u_type'] == "admin") {
             $_SESSION['is_admin'] = "yes";
-        else
+            header('location: ../admin/index.php');
+        }
+        else {
             $_SESSION['is_admin'] = "no";
+            header('location: ../client/index.php');
+        }
 
-        header('location: index.php');
     }else {
         $_SESSION['login_error'] = "Your Credentials are wrong or register!";
         header('location: login.php');

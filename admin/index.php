@@ -1,11 +1,10 @@
 <?php
-  // require_once 'is_admin.php';
+  require_once 'is_admin.php';
   $_SESSION['title'] = "Admin Dashboard";
   require_once 'header.php';
   require_once '../db.php';
 ?>
 
-<main class="container">
   <div class="d-flex align-items-center justify-content-center p-3 my-3 text-white bg-purple rounded shadow-sm">
     <img class="me-3" src="../assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">
     <div class="lh-1">
