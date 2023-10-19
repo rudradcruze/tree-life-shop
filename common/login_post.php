@@ -24,7 +24,6 @@
         else
             $_SESSION['is_admin'] = "no";
 
-        // header('location: admin/dashboard.php');
         header('location: index.php');
     }else {
         $_SESSION['login_error'] = "Your Credentials are wrong or register!";

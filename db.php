@@ -5,7 +5,7 @@
         $db_host = "localhost:3308";
         $db_user = "root";
         $db_pass = "";
-        $db_name = "tree_hunting";
+        $db_name = "tree_life_shop";
 
         return mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     }
