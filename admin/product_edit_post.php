@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
             $availability = 'Unknown';
             break;
     }
-    
+
     $containerType = $_POST['containerType'];
 
     // Check if a new image file is selected
@@ -51,6 +51,14 @@ if (isset($_POST['submit'])) {
 
             // Check if the image extension is allowed
             if (in_array(strtolower($image_extension), $allow_extension)) {
+
+                // Unlink pervious file
+                $get_location_query = "SELECT image_location FROM products WHERE id='$productId'";
+
+                $image_location_from_db = mysqli_query(db_connect(), $get_location_query);
+                $after_assoc_image_location = mysqli_fetch_assoc($image_location_from_db);
+
+                unlink("../" . $after_assoc_image_location['image_location']);
 
                 // Generate a unique image name
                 $image_new_name = uniqid() . '.' . strtolower($image_extension);
