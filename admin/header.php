@@ -45,7 +45,7 @@
                             <?= $_SESSION['user']['f_name'] ?>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../common/profile_edit.php">Edit Profile</a></li>
                             <li><a class="dropdown-item text-danger" href="../common/logout.php">Log Out</a></li>
                         </ul>
                     </div>
