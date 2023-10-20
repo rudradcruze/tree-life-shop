@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Company Settings</a>
+                        <a class="nav-link" href="company_edit.php">Company Settings</a>
                     </li>
                 </ul>
                 <div class="account">

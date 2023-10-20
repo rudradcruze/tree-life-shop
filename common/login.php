@@ -3,9 +3,9 @@
     $_SESSION['title'] = "Login Page";
     if (isset($_SESSION['user_status'])) {
         if ($_SESSION['is_admin'] == "yes")
-            header('location: admin/dashboard.php');
+            header('location: ../admin/index.php');
         else
-            header('location: client/dashboard.php');
+            header('location: ../client/index.php');
     }
 
     require_once('../client/header.php');
