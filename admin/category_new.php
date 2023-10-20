@@ -12,6 +12,11 @@
     </div>
   </div>
 
+  <!-- Create New Category Button -->
+<div class="text-end">
+    <a href="category_list.php" class="btn btn-primary">Category List</a>
+</div>
+
   <!-- Main Create New Category Content -->
   <div class="mt-5 p-3 bg-body rounded shadow">
 
@@ -31,7 +36,7 @@
         </div>
 
         <div class="login_submit">
-            <button class="btn btn-primary rounded" id="submit" name="submit" type="submit">Create Category</button>
+            <button class="btn btn-success rounded" id="submit" name="submit" type="submit">Create Category</button>
         </div>
     </form>
   </div>

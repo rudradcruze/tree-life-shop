@@ -16,11 +16,12 @@
             try {
                 mysqli_query(db_connect(), $insert_query);
                 $_SESSION['success'] = "Category created successfully!";
+                header('location: category_list.php');
             } catch (Throwable $th) {
                 $   $_SESSION['error'] = "Category creation failed";
+                header('location: category_new.php');
             }
 
-            header('location: category_new.php');
         }
     }
 
