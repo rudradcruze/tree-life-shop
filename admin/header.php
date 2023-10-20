@@ -22,8 +22,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">List</a></li>
-                            <li><a class="dropdown-item" href="#">Create New</a></li>
+                            <li><a class="dropdown-item" href="category_list.php">List</a></li>
+                            <li><a class="dropdown-item" href="category_new.php">Create New</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Product</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="product_list.php">List</a></li>
+                            <li><a class="dropdown-item" href="product_new.php">Create New</a></li>
                         </ul>
                     </li>
 
