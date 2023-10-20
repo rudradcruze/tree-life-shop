@@ -12,6 +12,24 @@ require_once 'header.php';
   </div> -->
 </div>
 
+<?php if (isset($_SESSION['error'])) { ?>
+  <div class="alert alert-danger" role="alert">
+    <?php
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+    ?>
+  </div>
+<?php } ?>
+
+<?php if (isset($_SESSION['success'])) { ?>
+  <div class="alert alert-success" role="alert">
+    <?php
+    echo $_SESSION['success'];
+    unset($_SESSION['success']);
+    ?>
+  </div>
+<?php } ?>
+
 <div class="my-3 p-3 bg-body rounded shadow-sm">
   <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
   <div class="d-flex text-body-secondary pt-3">
