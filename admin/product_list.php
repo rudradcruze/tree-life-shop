@@ -67,24 +67,24 @@
 
             while ($product = mysqli_fetch_assoc($products_result)) {
                 echo "<tr>";
-                echo "<td>{$serialNumber}</td>";
-                echo "<td>{$product['name']}</td>";
-                echo "<td>{$product['description']}</td>";
-                echo "<td>{$product['regular_price']}</td>";
-                echo "<td>{$product['discount_price']}</td>";
-                echo "<td><img src='../{$product['image_location']}' alt='Product Image' width='50'></td>";
-                echo "<td>{$product['species']}</td>";
-                echo "<td>{$product['size']}</td>";
-                echo "<td>{$product['age']}</td>";
-                echo "<td>{$product['growth_rate']}</td>";
-                echo "<td>{$product['water_needs']}</td>";
-                echo "<td>{$product['availability']}</td>";
-                echo "<td>{$product['container_type']}</td>";
-                echo "<td>{$product['category_name']}</td>";
-                echo "<td>
-                        <a href='product_edit.php?id={$product['id']}' class='btn btn-primary'>Edit</a>
-                        <a href='product_delete.php?id={$product['id']}' class='btn btn-danger'>Delete</a>
-                     </td>";
+                    echo "<td>{$serialNumber}</td>";
+                    echo "<td>{$product['name']}</td>";
+                    echo "<td>{$product['description']}</td>";
+                    echo "<td>{$product['regular_price']}</td>";
+                    echo "<td>{$product['discount_price']}</td>";
+                    echo "<td><img src='../{$product['image_location']}' alt='Product Image' width='50'></td>";
+                    echo "<td>{$product['species']}</td>";
+                    echo "<td>{$product['size']}</td>";
+                    echo "<td>{$product['age']}</td>";
+                    echo "<td>{$product['growth_rate']}</td>";
+                    echo "<td>{$product['water_needs']}</td>";
+                    echo "<td>{$product['availability']}</td>";
+                    echo "<td>{$product['container_type']}</td>";
+                    echo "<td>{$product['category_name']}</td>";
+                    echo "<td>
+                            <a href='product_edit.php?id={$product['id']}' class='text-dark'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+                            <a href='product_delete.php?id={$product['id']}' class='text-danger'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+                        </td>";
                 echo "</tr>";
 
                 $serialNumber++;

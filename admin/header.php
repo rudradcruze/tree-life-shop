@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-<meta name="generator" content="Hugo 0.118.2">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
 
-<title><?= $_SESSION['title'] ?></title>
+    <title><?= $_SESSION['title'] ?></title>
 
-<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/css/offcanvas-navbar.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/offcanvas-navbar.css" rel="stylesheet">
+    <link href="../assets/css/font.awesome.css" rel="stylesheet">
 </head>
 
 <body class="bg-body-tertiary">
