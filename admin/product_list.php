@@ -1,8 +1,8 @@
 <?php
     require_once 'is_admin.php';
     $_SESSION['title'] = "Product List";
-    require_once 'header.php';
     require_once '../db.php';
+    require_once 'header.php';
 
     // Fetch products with category name from the database
     $products_query = "SELECT p.id, p.name, p.description, p.regular_price, p.discount_price, p.image_location, p.species, p.size, p.age, p.growth_rate, p.water_needs, p.availability, p.container_type, c.name AS category_name FROM products p JOIN category c ON p.category_id = c.id";

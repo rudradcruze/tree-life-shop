@@ -16,7 +16,13 @@
         
         $row = mysqli_fetch_assoc($from_db);
 
-        $_SESSION['email'] = $row['f_name'];
+        $_SESSION['user'] = array(
+            'f_name' => $row['f_name'],
+            'l_name' => $row['l_name'],
+            'mobile' => $row['mobile'],
+            'email' => $row['email'],
+            'u_type' => $row['u_type']
+        );
         $_SESSION['user_status'] = "yes";
 
         if ($row['u_type'] == "admin") {

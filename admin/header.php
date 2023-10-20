@@ -16,7 +16,7 @@
 <body class="bg-body-tertiary">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <a class="navbar-brand" href="index.php">Admin Dashboard</a>
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -42,7 +42,7 @@
                 <div class="account">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            First Name
+                            <?= $_SESSION['user']['f_name'] ?>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Edit Profile</a></li>

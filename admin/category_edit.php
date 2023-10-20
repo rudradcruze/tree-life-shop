@@ -1,7 +1,7 @@
 <?php
     $_SESSION['title'] = "Edit Category";
-    require_once 'header.php';
     require_once '../db.php';
+    require_once 'header.php';
 
     if (isset($_GET['id'])) {
         $categoryId = $_GET['id'];

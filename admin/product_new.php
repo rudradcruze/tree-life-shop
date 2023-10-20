@@ -1,8 +1,8 @@
 <?php
 require_once 'is_admin.php';
 $_SESSION['title'] = "New Product";
-require_once 'header.php';
 require_once '../db.php';
+require_once 'header.php';
 
 // Fetch categories from the database
 $categories_query = "SELECT id, name FROM category";
