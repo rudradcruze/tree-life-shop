@@ -8,8 +8,10 @@
             header('location: ../client/index.php');
     }
 
+    require_once('../db.php');
     require_once('../client/header.php');
 ?>
+
 <header>
     <div class="main_header">
         <div class="header_middle">
@@ -17,7 +19,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="../index.php"><img src="../assets/img/logo/logo.png" alt="logo"></a>
+                            <a href="index.php"><img src="<?= '../' . $_SESSION['company']['image_dark'] ?>" alt="<?= $_SESSION['company']['name'] ?>"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -34,18 +36,20 @@
                                 <div class="header_account-list top_links">
                                     <a href="#"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
-                                        <li><a href="checkout.html">Checkout </a></li>
-                                        <li><a href="my-account.html">My Account </a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
+                                            <li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                        <?php } ?>
+
+                                        <?php if (!isset($_SESSION['is_admin'])) { ?>
+                                            <li><a href="../common/login.php">Login / Register</a></li>
+                                        <?php } ?>
                                     </ul>
-                                </div>
-                                <div class="header_account-list header_wishlist">
-                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="#">
-                                        <i class="icon-shopping-bag"></i><span class="item_count">2</span>
+                                        <i class="icon-shopping-bag"></i>
+                                        <!-- <span class="item_count">2</span> -->
                                     </a>
                                 </div>
                             </div>
@@ -64,11 +68,11 @@
                             </div>
                             <div class="categories_menu_toggle">
                                 <ul>
-                                    <li><a href="#"> Lighting</a></li>
-                                    <li><a href="#"> Accessories</a></li>
-                                    <li><a href="#">Body Parts</a></li>
-                                    <li><a href="#">Perfomance Filters</a></li>
-                                    <li><a href="#"> Engine Parts</a></li>
+                                    <?php
+                                    foreach (get_all('category') as $category) :
+                                        echo "<li><a href='#'>" . $category['name'] . "</a></li>";
+                                    endforeach
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -77,44 +81,8 @@
                         <div class="main_menu menu_position">
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">home</a></li>
-                                    <li class="mega_items"><a href="shop.html">shop<i class="fa fa-angle-down"></i></a>
-                                        <div class="mega_menu">
-                                            <ul class="mega_menu_inner">
-                                                <li><a href="#">Shop Layouts</a>
-                                                    <ul>
-                                                        <li><a href="shop-fullwidth.html">Full Width</a></li>
-                                                        <li><a href="shop-fullwidth-list.html">Full Width list</a>
-                                                        </li>
-                                                        <li><a href="shop-right-sidebar.html">Right Sidebar </a>
-                                                        </li>
-                                                        <li><a href="shop-right-sidebar-list.html"> Right Sidebar
-                                                                list</a></li>
-                                                        <li><a href="shop-list.html">List View</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">other Pages</a>
-                                                    <ul>
-                                                        <li><a href="cart.html">cart</a></li>
-                                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                        <li><a href="my-account.html">my account</a></li>
-                                                        <li><a href="404.html">Error 404</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Product Types</a>
-                                                    <ul>
-                                                        <li><a href="product-details.html">product details</a></li>
-                                                        <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                        <li><a href="product-grouped.html">product grouped</a></li>
-                                                        <li><a href="variable-product.html">product variable</a>
-                                                        </li>
-
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                    <li><a href="../index.php">home</a></li>
+                                    <li><a href="../shop.php">shop</a></li>
                                     <li><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
                                             <li><a href="blog-details.html">blog details</a></li>
@@ -122,7 +90,7 @@
                                             <li><a href="blog-sidebar.html">blog sidebar</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="active" href="#">pages <i class="fa fa-angle-down"></i></a>
+                                    <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
                                             <li><a href="about.html">About Us</a></li>
                                             <li><a href="services.html">services</a></li>
@@ -139,7 +107,7 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="call-support">
-                            <p>Call Support: <a href="tel:0123456789">0123456789</a></p>
+                            <p>Call Support: <a <?php echo "href='tel:+88" . $_SESSION['company']['phone'] . "'" ?>><?= $_SESSION['company']['phone'] ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -147,7 +115,6 @@
         </div>
     </div>
 </header>
-<!--header area end-->
 
 <!--breadcrumbs area start-->
 <div class="breadcrumbs_area">
@@ -287,5 +254,5 @@
 <!-- customer login end -->
 
 <?php
-    require_once('../client/footer.php');
+require_once('../client/footer.php');
 ?>
