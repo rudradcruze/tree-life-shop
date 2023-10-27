@@ -1,15 +1,16 @@
 <?php
-    session_start();
-    $_SESSION['title'] = "Login Page";
-    require_once 'db.php';
-    // if (isset($_SESSION['user_status'])) {
-    //     if ($_SESSION['is_admin'] == "yes")
-    //         header('location: ../admin/index.php');
-    //     else
-    //         header('location: ../client/index.php');
-    // }
+session_start();
+$_SESSION['title'] = "Login Page";
+require_once 'db.php';
 
-    require_once('client/header2.php');
+if (isset($_SESSION['user_status'])) {
+    if ($_SESSION['is_admin'] == "yes")
+    header('location: ../admin/index.php');
+} else {
+    header('location: ../common/login.php');
+}
+
+require_once('client/header2.php');
 ?>
 
 <header>
@@ -36,9 +37,9 @@
                                 <div class="header_account-list top_links">
                                     <a href="#"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
-                                        <li><a href="checkout.html">Checkout </a></li>
                                         <li><a href="my-account.html">My Account </a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="cart.php">Shopping Cart</a></li>
+                                        <li><a href="common/logout.php" class="text-danger">Log Out</a></li>
                                     </ul>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
@@ -77,24 +78,6 @@
                                 <ul>
                                     <li><a href="../index.php">home</a></li>
                                     <li><a class="active" href="shop.php">shop</a></li>
-                                    <li><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu pages">
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                            <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                            <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu pages">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="services.html">services</a></li>
-                                            <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="contact.html">contact</a></li>
-                                            <li><a href="login.html">login</a></li>
-                                            <li><a href="404.html">Error 404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -161,7 +144,7 @@
                                         <div class="action_links">
                                             <ul>
                                                 <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
-                                                    <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="icon-shopping-bag"></i></a></li>
+                                                    <li class="add_to_cart"><a href="client/add_to_cart.php?productId=<?= $product['id'] ?>&userId=<?= $_SESSION['user']['id'] ?>" title="Add to cart"><i class="icon-shopping-bag"></i></a></li>
                                                 <?php } ?>
                                                 <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box" title="quick view"> <i class="icon-eye"></i></a></li>
                                             </ul>
@@ -197,7 +180,7 @@
                                             <div class="action_links list_action_right">
                                                 <ul>
                                                     <li class="add_to_cart">
-                                                        <a href="cart.html" title="Add to cart">Add to cart</a>
+                                                        <a href="client/add_to_cart.php?productId=<?= $product['id'] ?>&userId=<?= $_SESSION['user']['id'] ?>" title="Add to cart">Add to cart</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -215,5 +198,5 @@
 <!--shop  area end-->
 
 <?php
-    require_once('client/footer2.php');
+require_once('client/footer2.php');
 ?>

@@ -5,7 +5,7 @@
         if ($_SESSION['is_admin'] == "yes")
             header('location: ../admin/index.php');
         else
-            header('location: ../client/index.php');
+            header('location: ../index.php');
     }
 
     require_once('../db.php');
@@ -19,7 +19,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="index.php"><img src="<?= '../' . $_SESSION['company']['image_dark'] ?>" alt="<?= $_SESSION['company']['name'] ?>"></a>
+                            <a href="../index.php"><img src="<?= '../' . $_SESSION['company']['image_dark'] ?>" alt="<?= $_SESSION['company']['name'] ?>"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -83,24 +83,6 @@
                                 <ul>
                                     <li><a href="../index.php">home</a></li>
                                     <li><a href="../shop.php">shop</a></li>
-                                    <li><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu pages">
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                            <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                            <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu pages">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="services.html">services</a></li>
-                                            <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="contact.html">contact</a></li>
-                                            <li><a href="login.html">login</a></li>
-                                            <li><a href="404.html">Error 404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>

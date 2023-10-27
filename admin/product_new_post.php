@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
             if (in_array(strtolower($image_extension), $allow_extension)) {
 
                 // Generate a unique image name
-                $image_new_name = $uniqid() . '.' . strtolower($image_extension);
+                $image_new_name = uniqid() . '.' . strtolower($image_extension);
 
                 // Define the save location
                 $save_location = "../uploads/products/product." . $image_new_name;

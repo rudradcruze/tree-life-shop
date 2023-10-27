@@ -12,8 +12,8 @@ if (isset($_POST['submit'])) {
     $companyPhone = $_POST['companyPhone'];
     
     $allow_extension = array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'webp');
-    $light_image_path = null;
-    $dark_image_path = null;
+    $light_image_path = $company['image_light'];
+    $dark_image_path = $company['image_dark'];
 
     // Check if new light image is provided
     if (isset($_FILES['companyImageLight']) && $_FILES['companyImageLight']['size'] > 0) {
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Update company details in the database
-    $update_query = "UPDATE company SET name = '$companyName', image_light = '$light_image_path', image_dark = '$dark_image_path', phone = '$companyPhone' WHERE id = $companyId";
+    $update_query = "UPDATE company SET name = '$companyName', `image_light`='$light_image_path', `image_dark`='$dark_image_path', phone = '$companyPhone' WHERE id = $companyId";
     mysqli_query(db_connect(), $update_query);
 
     $_SESSION['success'] = "Company details updated successfully!";

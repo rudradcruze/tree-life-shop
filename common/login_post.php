@@ -17,6 +17,7 @@
         $row = mysqli_fetch_assoc($from_db);
 
         $_SESSION['user'] = array(
+            'id' => $row['id'],
             'f_name' => $row['f_name'],
             'l_name' => $row['l_name'],
             'mobile' => $row['mobile'],
@@ -31,7 +32,7 @@
         }
         else {
             $_SESSION['is_admin'] = "no";
-            header('location: ../client/index.php');
+            header('location: ../index.php');
         }
 
     }else {
