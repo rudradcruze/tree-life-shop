@@ -71,7 +71,7 @@ if (mysqli_num_rows($order_result) > 0) {
                                                 <i class="icon-shopping-bag"></i>
                                             </a>
                                         </div>
-                                    <?php ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -151,6 +151,7 @@ if (mysqli_num_rows($order_result) > 0) {
                                     <th>SL</th>
                                     <th>Order ID</th>
                                     <th>Order Date</th>
+                                    <th>Payment Type</th>
                                     <th>Total Price</th>
                                     <th>Total Items</th>
                                 </tr>
@@ -161,6 +162,7 @@ if (mysqli_num_rows($order_result) > 0) {
                                 while ($order = mysqli_fetch_assoc($order_result)) {
                                     $orderId = $order['id'];
                                     $orderDate = date('d M Y', strtotime($order['order_date']));
+                                    $paymentType = $order['payment_type'];
                                     $totalPrice = $order['total_price'];
                                     $totalItems = $order['total_items'];
                                 ?>
@@ -169,6 +171,7 @@ if (mysqli_num_rows($order_result) > 0) {
                                         <td>
                                             <a href="order_details.php?order_id=<?= $orderId ?>"><?php echo $orderId; ?></a>
                                         </td>
+                                        <td><?php echo $paymentType; ?></td>
                                         <td><?php echo $orderDate; ?></td>
                                         <td><?php echo "৳" . $totalPrice; ?></td>
                                         <td><?php echo $totalItems; ?></td>

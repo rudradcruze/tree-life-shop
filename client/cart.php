@@ -60,7 +60,7 @@ if (isset($_SESSION['user'])) {
                                                 <i class="icon-shopping-bag"></i>
                                             </a>
                                         </div>
-                                    <?php ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

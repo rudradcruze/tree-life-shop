@@ -69,7 +69,7 @@ if (isset($_GET['order_id'])) {
                                             <i class="icon-shopping-bag"></i>
                                         </a>
                                     </div>
-                                <?php ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

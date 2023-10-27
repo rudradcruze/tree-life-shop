@@ -38,6 +38,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="company_edit.php">Company Settings</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.php">Orders</a>
+                    </li>
                 </ul>
                 <div class="account">
                     <div class="dropdown">
