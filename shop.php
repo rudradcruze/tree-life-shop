@@ -5,10 +5,9 @@ require_once 'db.php';
 
 if (isset($_SESSION['user_status'])) {
     if ($_SESSION['is_admin'] == "yes")
-    header('location: ../admin/index.php');
-} else {
-    header('location: ../common/login.php');
+        header('location: ../admin/index.php');
 }
+$_SESSION['title'] = "Shop";
 
 require_once('client/header2.php');
 ?>
@@ -37,16 +36,22 @@ require_once('client/header2.php');
                                 <div class="header_account-list top_links">
                                     <a href="#"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
-                                        <li><a href="my-account.html">My Account </a></li>
-                                        <li><a href="cart.php">Shopping Cart</a></li>
-                                        <li><a href="common/logout.php" class="text-danger">Log Out</a></li>
+                                        <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
+                                            <li><a href="common/profile_edit.php">My Account </a></li>
+                                            <li><a href="client/cart.php">Shopping Cart</a></li>
+                                            <li><a href="common/logout.php" class="text-danger">Log Out</a></li>
+                                        <?php } else { ?>
+                                            <li><a href="common/login.php">Login / Register</a></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
-                                <div class="header_account-list  mini_cart_wrapper">
-                                    <a href="#">
-                                        <i class="icon-shopping-bag"></i><span class="item_count">2</span>
-                                    </a>
-                                </div>
+                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
+                                    <div class="header_account-list  mini_cart_wrapper">
+                                        <a href="client/cart.php">
+                                            <i class="icon-shopping-bag"></i>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -76,8 +81,12 @@ require_once('client/header2.php');
                         <div class="main_menu menu_position">
                             <nav>
                                 <ul>
-                                    <li><a href="../index.php">home</a></li>
+                                    <li><a href="index.php">home</a></li>
                                     <li><a class="active" href="shop.php">shop</a></li>
+                                    <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
+                                        <li><a href="client/cart.php">cart</a></li>
+                                        <li><a href="client/order.php">order</a></li>
+                                    <?php } ?>
                                 </ul>
                             </nav>
                         </div>

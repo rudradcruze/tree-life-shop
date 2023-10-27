@@ -1,16 +1,18 @@
 <?php
-    session_start();
-    $_SESSION['title'] = "Login Page";
-    if (isset($_SESSION['user_status'])) {
-        if ($_SESSION['is_admin'] == "yes")
-            header('location: ../admin/index.php');
-        else
-            header('location: ../index.php');
-    }
+session_start();
+$_SESSION['title'] = "Login Page";
+if (isset($_SESSION['user_status'])) {
+    if ($_SESSION['is_admin'] == "yes")
+        header('location: ../admin/index.php');
+    else
+        header('location: ../index.php');
+}
 
-    require_once('../db.php');
-    require_once('../client/header.php');
+require_once('../db.php');
+require_once('../client/header.php');
 ?>
+
+
 
 <header>
     <div class="main_header">
@@ -19,7 +21,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="../index.php"><img src="<?= '../' . $_SESSION['company']['image_dark'] ?>" alt="<?= $_SESSION['company']['name'] ?>"></a>
+                            <a href="../index.php"><img src="../<?= $_SESSION['company']['image_dark'] ?>" alt="<?= $_SESSION['company']['name'] ?>"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -37,19 +39,17 @@
                                     <a href="#"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
                                         <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="cart.html">Shopping Cart</a></li>
-                                        <?php } ?>
-
-                                        <?php if (!isset($_SESSION['is_admin'])) { ?>
-                                            <li><a href="../common/login.php">Login / Register</a></li>
+                                            <li><a href="../common/profile_edit.php">My Account </a></li>
+                                            <li><a href="cart.php">Shopping Cart</a></li>
+                                            <li><a href="common/logout.php" class="text-danger">Log Out</a></li>
+                                            <?php } else { ?>
+                                                <li><a href="login.php">Login / Register</a></li>
                                         <?php } ?>
                                     </ul>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
-                                    <a href="#">
+                                    <a href="cart.php">
                                         <i class="icon-shopping-bag"></i>
-                                        <!-- <span class="item_count">2</span> -->
                                     </a>
                                 </div>
                             </div>
@@ -83,6 +83,10 @@
                                 <ul>
                                     <li><a href="../index.php">home</a></li>
                                     <li><a href="../shop.php">shop</a></li>
+                                    <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>
+                                    <li><a href="../client/cart.php">cart</a></li>
+                                    <li><a href="../client/order.php">order</a></li>
+                                    <?php } ?>
                                 </ul>
                             </nav>
                         </div>
@@ -97,6 +101,7 @@
         </div>
     </div>
 </header>
+
 
 <!--breadcrumbs area start-->
 <div class="breadcrumbs_area">

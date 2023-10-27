@@ -175,7 +175,7 @@ if (!$user) {
                     
                     <?php if ($_SESSION['is_admin'] != "yes") { ?>
                         <ul>
-                            <li><a href="index.html">home</a></li>
+                            <li><a href="../index.php">home</a></li>
                             <li>My account</li>
                         </ul>
                     <?php } ?>
