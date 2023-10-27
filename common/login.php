@@ -47,11 +47,6 @@ require_once('../client/header.php');
                                         <?php } ?>
                                     </ul>
                                 </div>
-                                <div class="header_account-list  mini_cart_wrapper">
-                                    <a href="cart.php">
-                                        <i class="icon-shopping-bag"></i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
