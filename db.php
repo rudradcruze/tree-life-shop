@@ -2,7 +2,7 @@
 
     function db_connect(){
         
-        $db_host = "localhost:3308";
+        $db_host = "localhost";
         $db_user = "root";
         $db_pass = "";
         $db_name = "tree_life_shop";
