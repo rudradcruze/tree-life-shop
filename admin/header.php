@@ -46,7 +46,11 @@
                 <div class="account">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?= $_SESSION['user']['f_name'] ?>
+                            <?php if(isset($_SESSION['user']['f_name']))
+                                $_SESSION['user']['f_name'];
+                                else
+                                    echo "User";
+                            ?>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="../common/profile_edit.php">Edit Profile</a></li>
