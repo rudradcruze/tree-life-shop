@@ -47,9 +47,7 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php if(isset($_SESSION['user']['f_name']))
-                                $_SESSION['user']['f_name'];
-                                else
-                                    echo "User";
+                                    echo $_SESSION['user']['f_name'];
                             ?>
                         </button>
                         <ul class="dropdown-menu">
