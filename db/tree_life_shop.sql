@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Oct 27, 2023 at 05:07 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: Nov 21, 2023 at 06:30 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -95,13 +95,6 @@ CREATE TABLE `orders` (
   `shipping_address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_date`, `payment_type`, `total_price`, `customer_id`, `bill_name`, `phone_number`, `email`, `shipping_address`) VALUES
-('653b946b1446alira@gmail.com7', '2023-10-27 06:43:55', 'CASH', 151.92, 7, 'Francis Rudra D Cruze', '01870179066', 'lira@gmail.com', 'Dhaka, Bangladesh');
-
 -- --------------------------------------------------------
 
 --
@@ -115,14 +108,6 @@ CREATE TABLE `order_details` (
   `price` double NOT NULL,
   `order_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `product_id`, `quantity`, `price`, `order_id`) VALUES
-(4, 1, 5, 24.99, '653b946b1446alira@gmail.com7'),
-(5, 5, 3, 8.99, '653b946b1446alira@gmail.com7');
 
 -- --------------------------------------------------------
 
