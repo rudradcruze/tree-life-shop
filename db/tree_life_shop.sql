@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 21, 2023 at 06:30 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1:3308
+-- Generation Time: Nov 27, 2023 at 07:04 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (3, 'Bryophyta'),
 (5, 'Pteridophyta'),
 (6, 'Houseplants'),
-(7, 'Perennials');
+(7, 'Perennialsg');
 
 -- --------------------------------------------------------
 
@@ -95,6 +95,13 @@ CREATE TABLE `orders` (
   `shipping_address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_date`, `payment_type`, `total_price`, `customer_id`, `bill_name`, `phone_number`, `email`, `shipping_address`) VALUES
+('6564d8d0ad0bforthy16-565@diu.edu.bd8', '2023-11-27 12:58:40', 'CASH', 940.95, 8, 'Francis Rudra D Cruze', '01870179066', 'francisrudra@gmail.com', 'Dhaka, Bangladesh');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +115,15 @@ CREATE TABLE `order_details` (
   `price` double NOT NULL,
   `order_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `product_id`, `quantity`, `price`, `order_id`) VALUES
+(9, 1, 3, 24.99, '6564d8d0ad0bforthy16-565@diu.edu.bd8'),
+(10, 5, 2, 8.99, '6564d8d0ad0bforthy16-565@diu.edu.bd8'),
+(11, 7, 4, 212, '6564d8d0ad0bforthy16-565@diu.edu.bd8');
 
 -- --------------------------------------------------------
 
@@ -138,7 +154,8 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `description`, `regular_price`, `discount_price`, `image_location`, `species`, `size`, `age`, `growth_rate`, `water_needs`, `availability`, `container_type`, `category_id`) VALUES
 (1, 'Commodo Augue Nisi', 'A beautiful and easy-to-care-for plant that is perfect for any home.', 29.99, 24.99, 'uploads/products/product.65326186a6232.jpg', 'Commodo Augue Nisi', 'Medium', 1, 'Medium', 'Medium', 'Common', 'Pot', 6),
-(5, 'Fringilla Augue', 'A perennial plant with bright yellow flowers.', 10.99, 8.99, 'uploads/products/product.653b5b90b5b99.jpg', 'Fringilla', 'Small', 1, 'Medium', 'Medium', 'Common', 'Pot', 7);
+(5, 'Fringilla Augue', 'A perennial plant with bright yellow flowers.', 10.99, 8.99, 'uploads/products/product.653b5b90b5b99.jpg', 'Fringilla', 'Small', 1, 'Medium', 'Medium', 'Common', 'Pot', 7),
+(7, 'test', 'test', 555, 212, 'uploads/products/product.6564d80f60299.jpg', 'test', 'Large', 3, 'High', 'High', 'Uncommon', 'pot', 7);
 
 -- --------------------------------------------------------
 
@@ -162,7 +179,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `f_name`, `l_name`, `mobile`, `email`, `password`, `u_type`) VALUES
 (2, 'Maiesha Haque', 'Lira', '\n01567640123', 'lira@gmail.com', '70b4269b412a8af42b1f7b0d26eceff2', 'admin'),
-(7, 'Francis Rudra', 'D Cruze', '01870179066', 'francisrudra@gmail.com', '70b4269b412a8af42b1f7b0d26eceff2', 'user');
+(8, 'Shinthiya', 'Hasan', '01822559462', 'orthy16-565@diu.edu.bd', '70b4269b412a8af42b1f7b0d26eceff2', 'user'),
+(9, 'Francis Rudra', 'D Cruze', '01870179066', 'francisrudra@gmail.com', '70b4269b412a8af42b1f7b0d26eceff2', 'user');
 
 --
 -- Indexes for dumped tables
@@ -218,13 +236,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -236,19 +254,19 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

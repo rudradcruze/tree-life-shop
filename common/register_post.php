@@ -55,34 +55,34 @@ if (isset($_POST['submit'])) {
             
                                 mysqli_query(db_connect(), $insert_query);
                                 $_SESSION['suss_msg'] = "Congratulation! You Successfully Registered.";
-                                header('location: register.php');
+                                header('location: login.php');
 
                             } else {
                                 $_SESSION['err_msg'] = "The user is already excised. You can't register";
-                                header('location: register.php');
+                                header('location: login.php');
                             }
                         } else {
                             $_SESSION['pass_msg'] = "6 character long, 1 uppercase, 1 lowercase, 1 number & 1 special character";
-                            header('location: register.php');
+                            header('location: login.php');
                         }
                     } else {
                         $_SESSION['email_msg'] = "Invalid Email. Please input a valid email.";
-                        header('location: register.php');
+                        header('location: login.php');
                     }
                 } else {
                     $_SESSION['number_msg'] = "Your number must be number & 11 character long";
-                    header('location: register.php');
+                    header('location: login.php');
                 }
             } else {
                 $_SESSION['l_name_msg'] = "Last name must be A to Z.";
-                header('location: register.php');
+                header('location: login.php');
             }
         } else {
             $_SESSION['f_name_msg'] = "First name must be A to Z.";
-            header('location: register.php');
+            header('location: login.php');
         }
     } else {
         $_SESSION['empty_msg'] = "Frist Name, Last Name, Mobile Number, Email, Password cannot be empty! -_-";
-        header('location: register.php');
+        header('location: login.php');
     }
 }
