@@ -53,7 +53,7 @@ if (mysqli_num_rows($order_result) > 0) {
                                     </form>
                                 </div>
                                 <div class="header_account_area">
-                                    <div class="header_account-list top_links">../
+                                    <div class="header_account-list top_links">
                                         <a href="#"><i class="icon-users"></i></a>
                                         <ul class="dropdown_links">
                                             <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != "yes") { ?>

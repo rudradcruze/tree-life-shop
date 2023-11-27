@@ -60,14 +60,14 @@ if (isset($_POST['billing_name']) && isset($_POST['phone_number']) && isset($_PO
             $orderDetailsInsertQuery = "INSERT INTO order_details (order_id, product_id, quantity, price)
                 VALUES ('$orderID', $productID, $quantity, $price)";
 
-            // Clear the user's cart after successful checkout
             mysqli_query(db_connect(), $orderDetailsInsertQuery);
+            // Clear the user's cart after successful checkout
             $clearCartQuery = "DELETE FROM cart_items WHERE id = $cartId and user_id = $userId";
             mysqli_query(db_connect(), $clearCartQuery);
         }
 
         $_SESSION['success'] = "Order placed successfully with Order ID: $orderID";
-        header('location: checkout.php');
+        header('location: order.php');
     } else {
         $_SESSION['error'] = "Failed to place the order. Please try again.";
         header('location: checkout.php');

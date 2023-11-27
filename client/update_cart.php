@@ -10,7 +10,6 @@ if (isset($_POST['update']) && isset($_POST['productId']) && isset($_POST['quant
     $update_query = "UPDATE cart_items SET quantity = $newQuantity WHERE user_id = $userId AND product_id = $productId";
     $update_result = mysqli_query(db_connect(), $update_query);
 
-
     if ($update_result) {
         $_SESSION['success'] = "Product quantity updated!";
         header('Location: cart.php');

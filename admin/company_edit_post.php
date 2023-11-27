@@ -3,7 +3,7 @@ require_once 'is_admin.php';
 require_once '../db.php';
 
 if (isset($_POST['submit'])) {
-    $companyId = 1;
+    $companyId = (int)1;
     $company_query = "SELECT * FROM company WHERE id = $companyId";
     $company_result = mysqli_query(db_connect(), $company_query);
     $company = mysqli_fetch_assoc($company_result);
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Update company details in the database
-    $update_query = "UPDATE company SET name = '$companyName', `image_light`='$light_image_path', `image_dark`='$dark_image_path', phone = '$companyPhone' WHERE id = $companyId";
+    $update_query = "UPDATE company SET `name`='$companyName', `image_light`='$light_image_path', `image_dark`='$dark_image_path', `phone`='$companyPhone' WHERE id=$companyId";
     mysqli_query(db_connect(), $update_query);
 
     $_SESSION['success'] = "Company details updated successfully!";

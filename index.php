@@ -4,7 +4,7 @@ require_once 'db.php';
 
 if (isset($_SESSION['user_status'])) {
     if ($_SESSION['is_admin'] == "yes")
-        header('location: ../admin/index.php');
+        header('location: admin/index.php');
 }
 
 $_SESSION['title'] = $_SESSION['company']['name'];
